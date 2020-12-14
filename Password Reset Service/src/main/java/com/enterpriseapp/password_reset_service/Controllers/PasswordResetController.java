@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class PasswordResetController {
 
     @GetMapping("/status")
-    String resetpassword(){
+    String checkStatus(){
         return "working...";
     }
 }
