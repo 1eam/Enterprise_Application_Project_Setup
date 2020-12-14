@@ -8,6 +8,6 @@ public class EmailVerificationController {
 
     @GetMapping("/status")
     public String checkStatus(){
-        return "working...";
+        return "Email Verification Controller working...";
     }
 }

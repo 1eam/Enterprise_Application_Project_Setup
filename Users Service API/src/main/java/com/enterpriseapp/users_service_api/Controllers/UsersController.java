@@ -9,6 +9,6 @@ public class UsersController {
 
     @GetMapping("/status")
     public String checkStatus(){
-        return "Working...";
+        return "User Controller Working...";
     }
 }
