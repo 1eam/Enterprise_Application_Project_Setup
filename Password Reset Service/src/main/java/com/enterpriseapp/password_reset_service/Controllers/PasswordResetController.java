@@ -9,6 +9,6 @@ public class PasswordResetController {
 
     @GetMapping("/status")
     String checkStatus(){
-        return "working...";
+        return "Password Reset Controller working...";
     }
 }
