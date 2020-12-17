@@ -1,9 +1,11 @@
-package com.enterpriseapp.users_service_api.Controllers;
+package com.enterpriseapp.users_service_api.controllers;
 
+import com.enterpriseapp.users_service_api.model.UserRegistrationModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -18,7 +20,7 @@ public class UsersController {
     }
 
     @PostMapping("/users")
-    public String createUser(){
+    public String createUser(@RequestBody UserRegistrationModel userInput){
         return "Create user method was called";
     }
 }
