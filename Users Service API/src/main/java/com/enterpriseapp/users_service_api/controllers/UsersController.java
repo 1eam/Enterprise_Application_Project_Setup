@@ -1,6 +1,6 @@
 package com.enterpriseapp.users_service_api.controllers;
 
-import com.enterpriseapp.users_service_api.model.UserRegistrationModel;
+import com.enterpriseapp.users_service_api.model.UsersRegistrationModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +22,7 @@ public class UsersController {
     }
 
     @PostMapping("/users")
-    public String createUser(@Valid @RequestBody UserRegistrationModel userInput){
+    public String createUser(@Valid @RequestBody UsersRegistrationModel userInput){
         return userInput.getEmail();
     }
 }

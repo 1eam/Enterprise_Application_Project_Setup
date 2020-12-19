@@ -2,7 +2,7 @@ package com.enterpriseapp.users_service_api.service;
 
 import java.io.Serializable;
 
-public class UserDto implements Serializable {
+public class UsersDto implements Serializable {
     private static final long serialVersionUID = 3765243991479728485L;
 
     private String userId;
@@ -11,7 +11,6 @@ public class UserDto implements Serializable {
     private String email;
     private String password;
     private String encryptedPassword;
-
 
     public String getUserId() {
         return userId;
@@ -60,5 +59,4 @@ public class UserDto implements Serializable {
     public void setEncryptedPassword(String encryptedPassword) {
         this.encryptedPassword = encryptedPassword;
     }
-
 }
