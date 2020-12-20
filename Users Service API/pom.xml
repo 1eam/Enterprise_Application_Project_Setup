@@ -37,6 +37,11 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+            <version>2.4.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
         <!--     specific version 1.4.193 avoids db not found issue-->
@@ -45,6 +50,12 @@
             <artifactId>h2</artifactId>
             <version>1.4.193</version>
             <scope>runtime</scope>
+        </dependency>
+        <!--     specific version 2.9.8 doesnt throw "Application failed to start" issue. normal behaviour helps return xml value (Postman Accept header). try updating later-->
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-xml</artifactId>
+            <version>2.9.8</version>
         </dependency>
         <dependency>
             <groupId>org.modelmapper</groupId>

@@ -6,6 +6,9 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,14 +29,20 @@ public class UsersController {
         return "User Controller Working on port " + environment.getProperty("local.server.port");
     }
 
-    @PostMapping("/users")
-    public String createUser(@Valid @RequestBody UsersRegistrationModel userInput){
+    @PostMapping(value = "/users", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
+                                   produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    public ResponseEntity<UserRegistrationResponseModel> createUser(@Valid @RequestBody UsersRegistrationModel userInput){
+        //Maps the request-model to UsersDto type -> for users service processing
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-
         UsersDto usersDto = modelMapper.map(userInput, UsersDto.class);
 
+        //calls creation method on usersDto-type
         usersService.createUser(usersDto);
-        return "createUser method has been called (post)";
+
+        //returns a response-entity with http status & body
+        //that contains the User-Registration-Response Model structure.
+        UserRegistrationResponseModel returnValue = modelMapper.map(usersDto, UserRegistrationResponseModel.class);
+        return ResponseEntity.status(HttpStatus.CREATED).body(returnValue);
     }
 }

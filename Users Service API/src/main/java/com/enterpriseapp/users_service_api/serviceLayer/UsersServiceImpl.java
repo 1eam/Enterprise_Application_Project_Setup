@@ -5,6 +5,7 @@ import com.enterpriseapp.users_service_api.dataLayer.UsersRepository;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
@@ -12,25 +13,32 @@ import java.util.UUID;
 @Service
 public class UsersServiceImpl implements UsersService {
     UsersRepository usersRepository;
+    BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
-    public UsersServiceImpl(UsersRepository usersRepository) {
+    public UsersServiceImpl(UsersRepository usersRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.usersRepository = usersRepository;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
     @Override
     public UsersDto createUser(UsersDto usersDTO) {
+        //set public userID
         usersDTO.setUserId(UUID.randomUUID().toString());
 
-        //temporary hardcoded encryption value
-        usersDTO.setEncryptedPassword("thisPWShouldBeEncrypted123");
+        //password encryption
+        usersDTO.setEncryptedPassword(bCryptPasswordEncoder.encode(usersDTO.getPassword()));
 
-        //Final map to userEntity model
+        //maps usersDto-type to userEntity model -> for save
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         UserEntity userEntity = modelMapper.map(usersDTO, UserEntity.class);
 
+        //calls actual save-method on userEntity-type
         usersRepository.save(userEntity);
-        return null;
+
+        //converts userEntity back to responsevalue (usersDTO)
+        UsersDto returnValue = modelMapper.map(userEntity, UsersDto.class);
+        return returnValue;
     }
 }
