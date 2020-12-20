@@ -51,7 +51,7 @@
             <version>1.4.193</version>
             <scope>runtime</scope>
         </dependency>
-        <!--     specific version 2.3.9 helps return xml value (Postman Accept header. try updating later-->
+        <!--     specific version 2.9.8 doesnt throw "Application failed to start" issue. normal behaviour helps return xml value (Postman Accept header). try updating later-->
         <dependency>
             <groupId>com.fasterxml.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-xml</artifactId>
