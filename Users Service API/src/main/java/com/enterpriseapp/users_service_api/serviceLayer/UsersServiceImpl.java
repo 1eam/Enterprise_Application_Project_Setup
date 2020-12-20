@@ -29,13 +29,15 @@ public class UsersServiceImpl implements UsersService {
         //password encryption
         usersDTO.setEncryptedPassword(bCryptPasswordEncoder.encode(usersDTO.getPassword()));
 
-        //final map to userEntity model
+        //maps usersDto-type to userEntity model -> for save
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         UserEntity userEntity = modelMapper.map(usersDTO, UserEntity.class);
+
+        //calls actual save-method on userEntity-type
         usersRepository.save(userEntity);
 
-        //convert userEntity back to responsevalue (usersDTO)
+        //converts userEntity back to responsevalue (usersDTO)
         UsersDto returnValue = modelMapper.map(userEntity, UsersDto.class);
         return returnValue;
     }

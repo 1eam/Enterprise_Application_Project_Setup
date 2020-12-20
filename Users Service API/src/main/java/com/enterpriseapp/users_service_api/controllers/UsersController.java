@@ -30,13 +30,16 @@ public class UsersController {
 
     @PostMapping("/users")
     public ResponseEntity<UserRegistrationResponseModel> createUser(@Valid @RequestBody UsersRegistrationModel userInput){
+        //Maps the request-model to UsersDto type -> for users service processing
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-
         UsersDto usersDto = modelMapper.map(userInput, UsersDto.class);
 
+        //calls creation method on usersDto-type
         usersService.createUser(usersDto);
 
+        //returns a response-entity with http status & body
+        //that contains the User-Registration-Response Model structure.
         UserRegistrationResponseModel returnValue = modelMapper.map(usersDto, UserRegistrationResponseModel.class);
         return ResponseEntity.status(HttpStatus.CREATED).body(returnValue);
     }
