@@ -1,4 +1,4 @@
-package com.enterpriseapp.users_service_api.service;
+package com.enterpriseapp.users_service_api.serviceLayer;
 
 import java.io.Serializable;
 

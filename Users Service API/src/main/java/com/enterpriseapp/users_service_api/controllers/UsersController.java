@@ -1,5 +1,9 @@
 package com.enterpriseapp.users_service_api.controllers;
 
+import com.enterpriseapp.users_service_api.serviceLayer.UsersDto;
+import com.enterpriseapp.users_service_api.serviceLayer.UsersService;
+import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +18,8 @@ public class UsersController {
 
     @Autowired
     private Environment environment;
+    @Autowired
+    UsersService usersService;
 
     @GetMapping("/status")
     public String checkStatus(){
@@ -22,6 +28,12 @@ public class UsersController {
 
     @PostMapping("/users")
     public String createUser(@Valid @RequestBody UsersRegistrationModel userInput){
-        return userInput.getEmail();
+        ModelMapper modelMapper = new ModelMapper();
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+
+        UsersDto usersDto = modelMapper.map(userInput, UsersDto.class);
+
+        usersService.createUser(usersDto);
+        return "createUser method has been called (post)";
     }
 }
