@@ -1,8 +1,7 @@
 //This class will be used to store data to the database
-package com.enterpriseapp.users_service_api.entities;
+package com.enterpriseapp.users_service_api.dataLayer;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Entity
