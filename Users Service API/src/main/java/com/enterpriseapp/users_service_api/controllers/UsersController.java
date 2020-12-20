@@ -37,7 +37,7 @@ public class UsersController {
 
         usersService.createUser(usersDto);
 
-        UserRegistrationResponseModel body = modelMapper.map(usersDto, UserRegistrationResponseModel.class);
-        return ResponseEntity.status(HttpStatus.CREATED).body(body);
+        UserRegistrationResponseModel returnValue = modelMapper.map(usersDto, UserRegistrationResponseModel.class);
+        return ResponseEntity.status(HttpStatus.CREATED).body(returnValue);
     }
 }
