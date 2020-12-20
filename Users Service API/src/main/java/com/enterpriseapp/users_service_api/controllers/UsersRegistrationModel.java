@@ -1,4 +1,5 @@
-package com.enterpriseapp.users_service_api.model;
+
+package com.enterpriseapp.users_service_api.controllers;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
