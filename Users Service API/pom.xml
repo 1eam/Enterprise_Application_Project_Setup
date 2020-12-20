@@ -51,6 +51,12 @@
             <version>1.4.193</version>
             <scope>runtime</scope>
         </dependency>
+        <!--     specific version 2.3.9 helps return xml value (Postman Accept header. try updating later-->
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-xml</artifactId>
+            <version>2.9.8</version>
+        </dependency>
         <dependency>
             <groupId>org.modelmapper</groupId>
             <artifactId>modelmapper</artifactId>
