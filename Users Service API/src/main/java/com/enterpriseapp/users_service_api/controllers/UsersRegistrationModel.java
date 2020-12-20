@@ -1,10 +1,11 @@
-package com.enterpriseapp.users_service_api.model;
+
+package com.enterpriseapp.users_service_api.controllers;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-public class UserRegistrationModel {
+public class UsersRegistrationModel {
     @NotNull(message = "First name field is Empty \n Please enter your first name")
     @Size(min = 2, max = 32, message = "Last name field-size should at least contain 2 and a maximum of 32 characters")
     private String firstName;
