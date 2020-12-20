@@ -29,13 +29,15 @@ public class UsersController {
     }
 
     @PostMapping("/users")
-    public ResponseEntity createUser(@Valid @RequestBody UsersRegistrationModel userInput){
+    public ResponseEntity<UserRegistrationResponseModel> createUser(@Valid @RequestBody UsersRegistrationModel userInput){
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 
         UsersDto usersDto = modelMapper.map(userInput, UsersDto.class);
 
         usersService.createUser(usersDto);
-        return new ResponseEntity(HttpStatus.CREATED);
+
+        UserRegistrationResponseModel body = modelMapper.map(usersDto, UserRegistrationResponseModel.class);
+        return ResponseEntity.status(HttpStatus.CREATED).body(body);
     }
 }
