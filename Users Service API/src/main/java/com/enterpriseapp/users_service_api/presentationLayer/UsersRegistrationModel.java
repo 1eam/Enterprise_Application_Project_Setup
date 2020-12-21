@@ -1,5 +1,5 @@
 
-package com.enterpriseapp.users_service_api.controllers;
+package com.enterpriseapp.users_service_api.presentationLayer;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
