@@ -1,5 +1,7 @@
 package com.enterpriseapp.users_service_api.serviceLayer;
 
-public interface UsersService {
+import org.springframework.security.core.userdetails.UserDetailsService;
+
+public interface UsersService extends UserDetailsService {
     UsersDto createUser(UsersDto usersDto);
 }
