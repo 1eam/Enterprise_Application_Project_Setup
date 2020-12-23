@@ -22,6 +22,14 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
         //authorise/allows http requests only from Zuul Api Gateway ip address
         http.authorizeRequests().antMatchers("/**").hasIpAddress(environment.getProperty("gateway.ip"));
-        http.headers().frameOptions().disable();
+        http.headers().frameOptions().disable()
+        .and()
+        .addFilter(getAuthenticationFilter());
+    }
+
+    private AuthenticationFilter getAuthenticationFilter() throws Exception{
+    AuthenticationFilter authenticationFilter = new AuthenticationFilter();
+    authenticationFilter.setAuthenticationManager(authenticationManager());
+    return authenticationFilter;
     }
 }
