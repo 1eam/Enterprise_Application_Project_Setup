@@ -22,21 +22,19 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-//import io.jsonwebtoken.Jwts;
-//import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 
 public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
     private UsersService usersService;
     private Environment environment;
 
-//    public AuthenticationFilter(UsersService usersService,
-//                                Environment environment,
-//                                AuthenticationManager authenticationManager) {
-//        this.usersService = usersService;
-//        this.environment = environment;
-//        super.setAuthenticationManager(authenticationManager);
-//    }
+    public AuthenticationFilter(UsersService usersService, Environment environment, AuthenticationManager authenticationManager) {
+        this.usersService = usersService;
+        this.environment = environment;
+        super.setAuthenticationManager(authenticationManager);
+    }
 
 
     @Override
@@ -64,18 +62,19 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
                                             HttpServletResponse res,
                                             FilterChain chain,
                                             Authentication auth) throws IOException, ServletException {
-//        String userName = ((User) auth.getPrincipal()).getUsername();
-//        UsersDto userDetails = usersService.getUserDetailsByEmail(userName);
-//
-//        String token = Jwts.builder()
-//                .setSubject(userDetails.getUserId())
-//                .setExpiration(new Date(System.currentTimeMillis() + Long.parseLong(environment.getProperty("token.expiration_time"))))
-//                .signWith(SignatureAlgorith.HS512, environment.getProperty("token.secret") )
-//                .compact();
-//
-//        res.addHeader("token", token);
-//        res.addHeader("userId", userDetails.getUserId());
-    }
+        String userName = ((User) auth.getPrincipal()).getUsername();
+        UsersDto userDetails = usersService.getUserDetailsByEmail(userName);
 
+        //Generates jwt token
+        String token = Jwts.builder()
+                .setSubject(userDetails.getUserId())
+                .setExpiration(new Date(System.currentTimeMillis() + Long.parseLong(environment.getProperty("token.expiration_time"))))
+                .signWith(SignatureAlgorithm.ES512, environment.getProperty("token.secret") )
+                .compact();
+
+        //Adds token to response-object
+        res.addHeader("token", token);
+        res.addHeader("userId", userDetails.getUserId());
+    }
 
 }

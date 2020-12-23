@@ -28,15 +28,15 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
         //authorise/allows http requests only from Zuul Api Gateway ip address
-        http.authorizeRequests().antMatchers("/**").hasIpAddress(environment.getProperty("gateway.ip"));
+        http.authorizeRequests().antMatchers("/**").permitAll();
         http.headers().frameOptions().disable()
         .and()
         .addFilter(getAuthenticationFilter());
     }
 
     private AuthenticationFilter getAuthenticationFilter() throws Exception{
-    AuthenticationFilter authenticationFilter = new AuthenticationFilter();
-    authenticationFilter.setAuthenticationManager(authenticationManager());
+    AuthenticationFilter authenticationFilter = new AuthenticationFilter(usersService, environment, authenticationManager());
+//    authenticationFilter.setAuthenticationManager(authenticationManager());
     return authenticationFilter;
     }
 
