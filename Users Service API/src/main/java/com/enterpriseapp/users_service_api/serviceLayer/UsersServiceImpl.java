@@ -5,15 +5,19 @@ import com.enterpriseapp.users_service_api.dataLayer.UsersRepository;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
 @Service
 public class UsersServiceImpl implements UsersService {
-    UsersRepository usersRepository;
-    BCryptPasswordEncoder bCryptPasswordEncoder;
+    private final UsersRepository usersRepository;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
     public UsersServiceImpl(UsersRepository usersRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
@@ -37,8 +41,28 @@ public class UsersServiceImpl implements UsersService {
         //calls actual save-method on userEntity-type
         usersRepository.save(userEntity);
 
-        //converts userEntity back to responsevalue (usersDTO)
+        //converts userEntity back to response value (usersDTO)
         UsersDto returnValue = modelMapper.map(userEntity, UsersDto.class);
         return returnValue;
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        UserEntity userEntity = usersRepository.findByEmail(email);
+
+        if (userEntity==null) throw new UsernameNotFoundException(email);
+
+        return new User(userEntity.getEmail(),
+                        userEntity.getEncryptedPassword(),
+                true, true, true, true, new ArrayList<>());
+    }
+
+    @Override
+    public UsersDto getUserDetailsByEmail(String email) {
+        UserEntity userEntity = usersRepository.findByEmail(email);
+
+        if (userEntity==null) throw new UsernameNotFoundException(email);
+
+        return new ModelMapper().map(userEntity, UsersDto.class);
     }
 }

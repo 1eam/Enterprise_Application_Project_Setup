@@ -51,6 +51,11 @@
             <version>1.4.193</version>
             <scope>runtime</scope>
         </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.9.1</version>
+        </dependency>
         <!--     specific version 2.9.8 doesnt throw "Application failed to start" issue. normal behaviour helps return xml value (Postman Accept header). try updating later-->
         <dependency>
             <groupId>com.fasterxml.jackson.dataformat</groupId>

@@ -1,4 +1,4 @@
-package com.enterpriseapp.users_service_api.controllers;
+package com.enterpriseapp.users_service_api.presentationLayer;
 
 import com.enterpriseapp.users_service_api.serviceLayer.UsersDto;
 import com.enterpriseapp.users_service_api.serviceLayer.UsersService;
