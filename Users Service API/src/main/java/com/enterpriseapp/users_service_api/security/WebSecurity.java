@@ -4,6 +4,7 @@ import com.enterpriseapp.users_service_api.serviceLayer.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -27,11 +28,10 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
-        //authorise/allows http requests only from Zuul Api Gateway ip address
-        http.authorizeRequests().antMatchers("/**").permitAll();
-        http.headers().frameOptions().disable()
+        http.authorizeRequests().antMatchers("/**").permitAll()
         .and()
         .addFilter(getAuthenticationFilter());
+        http.headers().frameOptions().disable();
     }
 
     private AuthenticationFilter getAuthenticationFilter() throws Exception{
