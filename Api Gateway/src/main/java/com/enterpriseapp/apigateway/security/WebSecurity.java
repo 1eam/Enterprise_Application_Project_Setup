@@ -27,10 +27,14 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
         //allows http requests without authorization to the following paths: (values of env.getProperty method)
         http.authorizeRequests()
                 .antMatchers(environment.getProperty("api.h2Console.url.path")).permitAll()
+//                .antMatchers(HttpMethod.GET, environment.getProperty("api.status.url.path")).permitAll()
                 .antMatchers(HttpMethod.POST, environment.getProperty("api.registration.url.path")).permitAll()
                 .antMatchers(HttpMethod.POST, environment.getProperty("api.login.url.path")).permitAll()
                 //finally any other request should be authenticated
-                .anyRequest().authenticated();
+                .anyRequest().authenticated()
+        .and()
+        .addFilter(new AuthorizationFilter(authenticationManager(), environment));
+
 
         //prohibits microservice (Spring) from creating http session, makes this API stateless to avoid cashing
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);

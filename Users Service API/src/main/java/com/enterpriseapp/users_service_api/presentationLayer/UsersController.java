@@ -29,7 +29,7 @@ public class UsersController {
         return "User Controller Working on port " + environment.getProperty("local.server.port");
     }
 
-    @PostMapping(value = "/registration", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
+    @PostMapping(value = "/register", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
                                    produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public ResponseEntity<UserRegistrationResponseModel> createUser(@Valid @RequestBody UsersRegistrationModel userInput){
         //Maps the request-model to UsersDto type -> for users service processing
