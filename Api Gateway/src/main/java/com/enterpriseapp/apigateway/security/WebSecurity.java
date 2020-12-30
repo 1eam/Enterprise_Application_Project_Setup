@@ -35,7 +35,6 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
         .and()
         .addFilter(new AuthorizationFilter(authenticationManager(), environment));
 
-
         //prohibits microservice (Spring) from creating http session, makes this API stateless to avoid cashing
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
