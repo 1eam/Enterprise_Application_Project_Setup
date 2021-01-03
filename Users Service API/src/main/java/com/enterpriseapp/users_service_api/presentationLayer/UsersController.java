@@ -30,7 +30,7 @@ public class UsersController {
     }
 
     @PostMapping(value = "/register", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
-                                   produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public ResponseEntity<UserRegistrationResponseModel> createUser(@Valid @RequestBody UsersRegistrationModel userInput){
         //Maps the request-model to UsersDto type -> for users service processing
         ModelMapper modelMapper = new ModelMapper();
