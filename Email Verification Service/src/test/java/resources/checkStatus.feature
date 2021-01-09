@@ -1,8 +1,8 @@
-Feature: Checking status
+Feature: As an Authorized API-user, I want to get the application's status, so that I can know if its up or not
 
   Scenario: The Authorized API-user makes a getrequest (or browses) to the /status endpoint
-    Given An Authorized user is logged in
-    When The user makes a getrequest (or browses) to /status
+    Given An Authorised user is logged in
+    When The user browses makes a getrequest to /status
     And The service is up
     Then Server responds with "Email Verification Controller working..."
 
