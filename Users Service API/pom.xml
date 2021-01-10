@@ -17,6 +17,9 @@
     <properties>
         <java.version>11</java.version>
         <spring-cloud.version>2020.0.0-M6</spring-cloud.version>
+
+        <rest-assured.version>4.3.0</rest-assured.version>
+        <groovy.version>3.0.2</groovy.version>
     </properties>
 
     <dependencies>
@@ -98,7 +101,6 @@
             <version>4.3.3</version>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
 
     <dependencyManagement>
