@@ -1,3 +1,5 @@
+package feartureTests;
+
 import io.cucumber.java.en.*;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -11,23 +13,25 @@ import static org.hamcrest.CoreMatchers.equalTo;
 //TODO#3: work with user registration and login. Auth.
 
 
-public class checkStatusFeature {
+public class checkStatusFeatureTest {
+
     private Response response;
+
 
     @Given("User is not authorised")
     public void noPrep() {
         given().contentType(ContentType.JSON);
     }
 
+    //Todo#2
     @When("The user makes a call to /status")
     public void aCallToStatusIsMade() {
-        //Todo#2
-        response = when().get("http://localhost:59203/users-service-api/status");
-
+        response = when().get("http://localhost:56545/users-service-api/status");
     }
 
     @Then("Server should respond with statuscode 403 - Unauthorised")
     public void respondWith403() throws Throwable{
+        //assert that statuscode is 403
         response.then().statusCode(403);
     }
 

@@ -18,9 +18,9 @@ import javax.validation.Valid;
 
 @RestController
 public class UsersController {
-
     @Autowired
     private Environment environment;
+
     @Autowired
     UsersService usersService;
 
