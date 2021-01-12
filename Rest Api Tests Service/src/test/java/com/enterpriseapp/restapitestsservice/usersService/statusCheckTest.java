@@ -2,11 +2,20 @@ package com.enterpriseapp.restapitestsservice.usersService;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import static io.restassured.RestAssured.given;
+import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Should test Users-Service - on authorisation, and expected responses")
 public class statusCheckTest {
@@ -50,20 +59,34 @@ public class statusCheckTest {
         ;
     }
 
-//    @Test //POST
-//    @DisplayName("Should test, [to /register] - expected registration-response + re respond with 200")
-//    final void testLoginResponse(){
-//        Response response =
-//        given()
-//                .contentType("application/json")
-//                .accept("application/json")
-//                .body(null)
-//        .when()
-//                .get(context_path + "/status")
-//        .then()
-//                .statusCode(200)
-//                .contentType("application/json")
-//        .extract()
-//                .response();
-//    }
+    @Test //POST
+    @DisplayName("Should test, [to /register] - expected registration-response + respond with 201")
+    final void testLoginResponse(){
+
+        //What we want to send in the body
+        Map<String, Object> registrationCredentials = new HashMap<>();
+        registrationCredentials.put("firstName", "Esther");
+        registrationCredentials.put("lastName", "Tester");
+        registrationCredentials.put("email", "esther@gmail.com");
+        registrationCredentials.put("password", "12345678");
+
+
+        Response response =
+        given()
+                .contentType("application/json")
+                .accept("application/json")
+                .body(registrationCredentials)
+        .when()
+                .post(context_path + "/register")
+        .then()
+                .statusCode(201)
+                .contentType("application/json")
+        .extract()
+                .response();
+
+        //Also test response object is not empty, and has id size equal to 36
+        String userId = response.jsonPath().getString("userId");
+        assertNotNull(userId);
+        assertEquals(userId.length(), 36);
+    }
 }
