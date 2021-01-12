@@ -14,12 +14,28 @@ public class statusCheckTest {
     @BeforeEach
     void setup() throws Exception{
         RestAssured.baseURI = "http://192.168.192.47";
-        RestAssured.port = 55266;
+        RestAssured.port = 8011;
     }
 
     @Test
     final void testApplicationStatusResponse(){
         Response response = given()
+                .contentType("application/json")
+                .accept("application/json")
+                .header("Authorization", "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI1N2M2NTViNS02ZjA2LTQxNmUtYjhiYi02OTkzYTJkNDMzOGQiLCJleHAiOjE2MTEwMTc1NDF9.1bDiHHKTR1t7LRiOeuzcQfzrF1o6iZ6QPnh7jIOT2KWY4B4Qoq_MI75BuIqgOpxfo4otaLEgtOYPwLqhFxO7rA")
+        .when()
+                .get(context_path + "/status")
+        .then()
+                .statusCode(200)
+                .contentType("application/json")
+        .extract()
+                .response();
+
+    }
+    @Test
+    final void testunAuthorisedStatusResponse(){
+        Response response =
+        given()
                 .contentType("application/json")
                 .accept("application/json")
         .when()
@@ -29,6 +45,5 @@ public class statusCheckTest {
                 .contentType("application/json")
         .extract()
                 .response();
-
     }
 }
