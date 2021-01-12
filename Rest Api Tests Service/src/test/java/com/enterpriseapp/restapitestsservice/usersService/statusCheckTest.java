@@ -13,8 +13,8 @@ public class statusCheckTest {
 
     @BeforeEach
     void setup() throws Exception{
-        RestAssured.baseURI = "http://localhost";
-        RestAssured.port = 54963;
+        RestAssured.baseURI = "http://192.168.192.47";
+        RestAssured.port = 55266;
     }
 
     @Test
@@ -25,7 +25,7 @@ public class statusCheckTest {
         .when()
                 .get(context_path + "/status")
         .then()
-                .statusCode(200)
+                .statusCode(403)
                 .contentType("application/json")
         .extract()
                 .response();
