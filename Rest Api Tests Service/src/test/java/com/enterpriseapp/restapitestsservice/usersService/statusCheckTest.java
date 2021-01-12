@@ -33,8 +33,8 @@ public class statusCheckTest {
                 .statusCode(200)
                 .contentType("application/json")
         ;
-
     }
+
     @Test //GET
     @DisplayName("Should test unAuthorised request [to /status] - to respond with 403")
     final void testunAuthorisedStatusResponse(){

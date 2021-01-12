@@ -2,9 +2,7 @@ package com.enterpriseapp.restapitestsservice.usersService;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,6 +11,8 @@ import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @DisplayName("Should test Users-Service - regarding login")
+
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class userLoginTest {
 
     private final String context_path = "users-service-api";
@@ -24,6 +24,7 @@ public class userLoginTest {
     }
 
     @Test //POST
+    @Order(1)
     @DisplayName("Should test, [to /login], if token and userId are present - respond with 200")
     final void testLoginResponse(){
 

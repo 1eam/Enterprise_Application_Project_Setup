@@ -26,7 +26,7 @@ public class userRegistrationTest {
 
     @Test //POST
     @DisplayName("Should test, [to /register] - expected registration-response + respond with 201")
-    final void tesrRegistrationResponse(){
+    final void testRegistrationResponse(){
 
         //What we want to send in the body
         Map<String, Object> registrationCredentials = new HashMap<>();
@@ -53,6 +53,5 @@ public class userRegistrationTest {
         String userId = response.jsonPath().getString("userId");
         assertNotNull(userId);
         assertEquals(userId.length(), 36);
-
     }
 }
