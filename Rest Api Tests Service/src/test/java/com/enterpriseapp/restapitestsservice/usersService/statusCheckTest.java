@@ -8,9 +8,12 @@ import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 
+@DisplayName("Should test Users-Service - on authorisation, and expected responses")
 public class statusCheckTest {
 
     private final String context_path = "users-service-api";
+    private String authorizationHeader = "Authorization";
+    private String token = "Bearer " + "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI1N2M2NTViNS02ZjA2LTQxNmUtYjhiYi02OTkzYTJkNDMzOGQiLCJleHAiOjE2MTEwMTc1NDF9.1bDiHHKTR1t7LRiOeuzcQfzrF1o6iZ6QPnh7jIOT2KWY4B4Qoq_MI75BuIqgOpxfo4otaLEgtOYPwLqhFxO7rA";
 
     @BeforeEach
     void setup() throws Exception{
@@ -18,26 +21,24 @@ public class statusCheckTest {
         RestAssured.port = 8011;
     }
 
-    @Test
-    @DisplayName("Should test Authorised request, with token, [to /status] to respond with 200")
+    @Test //GET
+    @DisplayName("Should test Authorised request, with token, [to /status] - to respond with 200")
     final void testStatusResponse(){
-        Response response = given()
+        given()
                 .contentType("application/json")
                 .accept("application/json")
-                .header("Authorization", "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI1N2M2NTViNS02ZjA2LTQxNmUtYjhiYi02OTkzYTJkNDMzOGQiLCJleHAiOjE2MTEwMTc1NDF9.1bDiHHKTR1t7LRiOeuzcQfzrF1o6iZ6QPnh7jIOT2KWY4B4Qoq_MI75BuIqgOpxfo4otaLEgtOYPwLqhFxO7rA")
+                .header(authorizationHeader, token)
         .when()
                 .get(context_path + "/status")
         .then()
                 .statusCode(200)
                 .contentType("application/json")
-        .extract()
-                .response();
+        ;
 
     }
-    @Test
-    @DisplayName("Should test unAuthorised request [to /status] to respond with 403")
+    @Test //GET
+    @DisplayName("Should test unAuthorised request [to /status] - to respond with 403")
     final void testunAuthorisedStatusResponse(){
-        Response response =
         given()
                 .contentType("application/json")
                 .accept("application/json")
@@ -46,7 +47,23 @@ public class statusCheckTest {
         .then()
                 .statusCode(403)
                 .contentType("application/json")
-        .extract()
-                .response();
+        ;
     }
+
+//    @Test //POST
+//    @DisplayName("Should test, [to /register] - expected registration-response + re respond with 200")
+//    final void testLoginResponse(){
+//        Response response =
+//        given()
+//                .contentType("application/json")
+//                .accept("application/json")
+//                .body(null)
+//        .when()
+//                .get(context_path + "/status")
+//        .then()
+//                .statusCode(200)
+//                .contentType("application/json")
+//        .extract()
+//                .response();
+//    }
 }
