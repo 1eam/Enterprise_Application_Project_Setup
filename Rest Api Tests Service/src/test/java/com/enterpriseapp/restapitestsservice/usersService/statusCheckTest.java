@@ -3,6 +3,7 @@ package com.enterpriseapp.restapitestsservice.usersService;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
@@ -18,7 +19,8 @@ public class statusCheckTest {
     }
 
     @Test
-    final void testApplicationStatusResponse(){
+    @DisplayName("Should test Authorised request, with token, [to /status] to respond with 200")
+    final void testStatusResponse(){
         Response response = given()
                 .contentType("application/json")
                 .accept("application/json")
@@ -33,6 +35,7 @@ public class statusCheckTest {
 
     }
     @Test
+    @DisplayName("Should test unAuthorised request [to /status] to respond with 403")
     final void testunAuthorisedStatusResponse(){
         Response response =
         given()
