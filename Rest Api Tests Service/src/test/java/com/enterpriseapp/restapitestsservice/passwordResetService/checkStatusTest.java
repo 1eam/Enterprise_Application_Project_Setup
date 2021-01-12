@@ -1,4 +1,4 @@
-package com.enterpriseapp.restapitestsservice.emailVerificationService;
+package com.enterpriseapp.restapitestsservice.passwordResetService;
 
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.BeforeEach;
@@ -7,10 +7,10 @@ import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 
-@DisplayName("Should test Email-Verification-Service - on authorisation, and expected responses")
+@DisplayName("Should test Password-Reset-Service - on authorisation, and expected responses")
 public class checkStatusTest {
 
-    private final String context_path = "email-verification-service-api";
+    private final String context_path = "password-reset-service";
     private String authorizationHeader = "Authorization";
     private String token = "Bearer " + "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI1N2M2NTViNS02ZjA2LTQxNmUtYjhiYi02OTkzYTJkNDMzOGQiLCJleHAiOjE2MTEwMTc1NDF9.1bDiHHKTR1t7LRiOeuzcQfzrF1o6iZ6QPnh7jIOT2KWY4B4Qoq_MI75BuIqgOpxfo4otaLEgtOYPwLqhFxO7rA";
 
