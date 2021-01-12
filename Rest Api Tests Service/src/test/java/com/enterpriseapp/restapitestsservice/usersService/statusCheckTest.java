@@ -2,20 +2,16 @@ package com.enterpriseapp.restapitestsservice.usersService;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @DisplayName("Should test Users-Service - on authorisation, and expected responses")
 public class statusCheckTest {
@@ -88,5 +84,6 @@ public class statusCheckTest {
         String userId = response.jsonPath().getString("userId");
         assertNotNull(userId);
         assertEquals(userId.length(), 36);
+
     }
 }
