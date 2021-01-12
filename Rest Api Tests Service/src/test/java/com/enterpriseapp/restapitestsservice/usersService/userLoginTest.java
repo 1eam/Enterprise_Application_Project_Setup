@@ -49,7 +49,7 @@ public class userLoginTest {
         String token = response.header("token");
         String userId = response.header("userId");
 
-        //Assert that token and userId are present
+        //Assert that token and userId are present in responseheaders
         assertNotNull(token);
         assertNotNull(userId);
     }

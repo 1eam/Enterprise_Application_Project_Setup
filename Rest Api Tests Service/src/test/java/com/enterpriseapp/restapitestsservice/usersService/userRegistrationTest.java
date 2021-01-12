@@ -17,8 +17,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class userRegistrationTest {
 
     private final String context_path = "users-service-api";
-    private String authorizationHeader = "Authorization";
-    private String token = "Bearer " + "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI1N2M2NTViNS02ZjA2LTQxNmUtYjhiYi02OTkzYTJkNDMzOGQiLCJleHAiOjE2MTEwMTc1NDF9.1bDiHHKTR1t7LRiOeuzcQfzrF1o6iZ6QPnh7jIOT2KWY4B4Qoq_MI75BuIqgOpxfo4otaLEgtOYPwLqhFxO7rA";
 
     @BeforeEach
     void setup() throws Exception{
