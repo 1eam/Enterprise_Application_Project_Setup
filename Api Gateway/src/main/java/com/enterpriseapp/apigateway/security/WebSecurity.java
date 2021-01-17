@@ -26,6 +26,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 
         //allows http requests without authorization to the following paths: (values of env.getProperty method)
         http.authorizeRequests()
+                .antMatchers(environment.getProperty("api.users.actuator.url.path")).permitAll()
                 .antMatchers(environment.getProperty("api.zuul.actuator.url.path")).permitAll()
                 .antMatchers(environment.getProperty("api.h2Console.url.path")).permitAll()
 //                .antMatchers(HttpMethod.GET, environment.getProperty("api.status.url.path")).permitAll()
