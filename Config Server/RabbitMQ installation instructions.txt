@@ -1,0 +1,9 @@
+This version or commit at the time being ran:
+
+Erlang               otp_win64_23.2.exe
+and RabbitMQ         rabbitmq-server-8.8.9.exe 
+
+Installation instructions can be found here: (https://www.rabbitmq.com/install-windows.html#installer)
+
+Allthough this 3 minute visual installation guide is much múch clearer
+Visual installation guide: https://youtu.be/V9DWKbalbWQ

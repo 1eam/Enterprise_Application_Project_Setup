@@ -5,14 +5,16 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.3.8.RELEASE</version>
+        <version>2.4.1</version> <!-- Todo: Update version to 2.4.1.RELEASE once available -->
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.enterpriseApp</groupId>
-    <artifactId>discovery_service</artifactId>
+    <artifactId>enterprise-app-config-server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>discovery_service</name>
-    <description>Discovery server for application (Eureka Discoversy Server)</description>
+    <name>enterprise-app-config-server</name>
+    <description>The central config server for all microservices in the project. For example to manage .properties files
+        for microservices
+    </description>
 
     <properties>
         <java.version>11</java.version>
@@ -22,19 +24,24 @@
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+            <artifactId>spring-cloud-config-server</artifactId>
         </dependency>
-
-        <!--    Bootstrap (explicitly needed for Cloud version 2020.0.0-->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-bootstrap</artifactId>
-        </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bus-amqp</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bootstrap</artifactId>
         </dependency>
     </dependencies>
 
