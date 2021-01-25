@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.3.8.RELEASE</version>
+        <version>2.4.1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.enterpriseApp</groupId>
@@ -16,8 +16,7 @@
 
     <properties>
         <java.version>11</java.version>
-        <spring-cloud.version>2020.0.0-M6</spring-cloud.version>
-
+        <spring-cloud.version>2020.0.0</spring-cloud.version>
         <rest-assured.version>4.3.0</rest-assured.version>
         <groovy.version>3.0.2</groovy.version>
     </properties>
@@ -35,7 +34,7 @@
             <optional>true</optional>
         </dependency>
 
-<!--        Discovery client of discovery server-->
+<!--        Discovery client-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
@@ -111,6 +110,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 <!--        *NOTE, according to their website, Rest-assured dependency needs to be placed ABOVE THE JUNIT dependency-->
         <dependency>
