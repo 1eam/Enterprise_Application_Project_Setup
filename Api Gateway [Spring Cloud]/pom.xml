@@ -15,7 +15,7 @@
     <description>Enterprise-App-Project-Setup API Gateway (Spring Cloud)</description>
     <properties>
         <java.version>11</java.version>
-        <spring-cloud.version>2020.0.0</spring-cloud.version>
+        <spring-cloud.version>2020.0.0-RC1</spring-cloud.version>
     </properties>
     <dependencies>
         <dependency>

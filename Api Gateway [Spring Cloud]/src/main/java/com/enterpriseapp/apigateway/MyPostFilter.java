@@ -1,5 +1,4 @@
-package com.appsdeveloperblog.photoapp.api.gateway;
-
+package com.enterpriseapp.apigateway;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;

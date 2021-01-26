@@ -1,4 +1,4 @@
-package com.appsdeveloperblog.photoapp.api.gateway;
+package com.enterpriseapp.apigateway;
 
 import java.util.Set;
 

@@ -1,4 +1,4 @@
-package com.appsdeveloperblog.photoapp.api.gateway;
+package com.enterpriseapp.apigateway;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
