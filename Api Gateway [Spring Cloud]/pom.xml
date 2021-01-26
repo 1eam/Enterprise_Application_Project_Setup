@@ -61,7 +61,7 @@
             <scope>provided</scope>
         </dependency>
 
-        <!--    Spring Cloud Config + Cloud Bus + Actuator + Bootstrap-->
+<!--    Spring Cloud Config + Cloud Bus + Actuator + Bootstrap-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
