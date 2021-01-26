@@ -27,7 +27,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
-        //authorizes/allows http requests only from Zuul Api Gateway ip address
+        //authorizes/allows http requests only from Spring Cloud Gateway ip address
         http.authorizeRequests().antMatchers("/**").hasIpAddress(environment.getProperty("gateway.ip"))
         .and()
         .addFilter(getAuthenticationFilter());
