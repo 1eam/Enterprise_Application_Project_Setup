@@ -1,17 +1,18 @@
 package com.enterpriseapp.users_service_api.feignLayer;
 
 public class ProfilePicturesResponseModel {
-    private String albumId;
+    private String photoId;
     private String userId;
     private String name;
     private String description;
+    private String location;
 
-    public String getAlbumId() {
-        return albumId;
+    public String getPhotoId() {
+        return photoId;
     }
 
-    public void setAlbumId(String albumId) {
-        this.albumId = albumId;
+    public void setPhotoId(String photoId) {
+        this.photoId = photoId;
     }
 
     public String getUserId() {
@@ -37,4 +38,11 @@ public class ProfilePicturesResponseModel {
     public void setDescription(String description) {
         this.description = description;
     }
-}
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }}

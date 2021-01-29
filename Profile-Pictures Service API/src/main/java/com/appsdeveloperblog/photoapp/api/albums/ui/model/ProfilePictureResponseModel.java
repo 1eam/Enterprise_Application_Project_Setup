@@ -9,24 +9,25 @@ package com.appsdeveloperblog.photoapp.api.albums.ui.model;
  *
  * @author skargopolov
  */
-public class AlbumResponseModel {
-    private String albumId;
+public class ProfilePictureResponseModel {
+    private String photoId;
     private String userId; 
     private String name;
     private String description;
+    private String location;
 
     /**
      * @return the id
      */
-    public String getAlbumId() {
-        return albumId;
+    public String getPhotoId() {
+        return photoId;
     }
 
     /**
-     * @param albumId the albumId to set
+     * @param photoId the photoId to set
      */
-    public void setAlbumId(String albumId) {
-        this.albumId = albumId;
+    public void setPhotoId(String photoId) {
+        this.photoId = photoId;
     }
 
     /**
@@ -70,5 +71,18 @@ public class AlbumResponseModel {
     public void setDescription(String description) {
         this.description = description;
     }
-    
+
+    /**
+     * @return the location
+     */
+    public String getLocation() {
+        return location;
+    }
+
+    /**
+     * @param location the description to set
+     */
+    public void setLocation(String location) {
+        this.location = location;
+    }
 }

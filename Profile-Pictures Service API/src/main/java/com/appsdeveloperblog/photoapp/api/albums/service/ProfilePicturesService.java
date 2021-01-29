@@ -6,9 +6,9 @@
 package com.appsdeveloperblog.photoapp.api.albums.service;
 
 
-import com.appsdeveloperblog.photoapp.api.albums.data.AlbumEntity;
+import com.appsdeveloperblog.photoapp.api.albums.data.ProfilePictureEntity;
 import java.util.List;
 
-public interface AlbumsService {
-    List<AlbumEntity> getAlbums(String userId);
+public interface ProfilePicturesService {
+    List<ProfilePictureEntity> getProfilePictures(String userId);
 }

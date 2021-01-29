@@ -6,11 +6,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
-//Todo: refactor names to: "profile-pictures-service"
-//The Feign framework implements this Interface
-
-@FeignClient(name = "albums-ws")
+@FeignClient(name = "profile-pictures-service")
 public interface ProfilePicturesClient {
-    @GetMapping("/users/{id}/albums")
+    @GetMapping("/users/{id}/profile-pictures")
     public List<ProfilePicturesResponseModel> getProfilePictures(@PathVariable String id);
 }
+
+//The Feign framework implements this Interface

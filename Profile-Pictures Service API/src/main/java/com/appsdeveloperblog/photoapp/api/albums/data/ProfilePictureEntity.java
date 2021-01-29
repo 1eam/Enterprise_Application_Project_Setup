@@ -5,12 +5,13 @@
  */
 package com.appsdeveloperblog.photoapp.api.albums.data;
 
-public class AlbumEntity {
+public class ProfilePictureEntity {
     private long id;
-    private String albumId;
-    private String userId; 
+    private String photoId;
+    private String userId;
     private String name;
-    private String description; 
+    private String description;
+    private String location;
 
     /**
      * @return the id
@@ -27,17 +28,17 @@ public class AlbumEntity {
     }
 
     /**
-     * @return the albumId
+     * @return the photoId
      */
-    public String getAlbumId() {
-        return albumId;
+    public String getPhotoId() {
+        return photoId;
     }
 
     /**
-     * @param albumId the albumId to set
+     * @param photoId the photoId to set
      */
-    public void setAlbumId(String albumId) {
-        this.albumId = albumId;
+    public void setPhotoId(String photoId) {
+        this.photoId = photoId;
     }
 
     /**
@@ -81,6 +82,19 @@ public class AlbumEntity {
     public void setDescription(String description) {
         this.description = description;
     }
-    
+
+    /**
+     * @return the location
+     */
+    public String getLocation() {
+        return location;
+    }
+
+    /**
+     * @param location the description to set
+     */
+    public void setLocation(String location) {
+        this.location = location;
+    }
     
 }
