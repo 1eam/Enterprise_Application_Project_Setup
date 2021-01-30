@@ -1,16 +1,12 @@
-package com.enterpriseapp.users_service_api.presentationLayer;
+package com.enterpriseapp.users_service_api.controllerLayer.endpointModels.userRegistration;
 
-import com.enterpriseapp.users_service_api.feignLayer.ProfilePicturesResponseModel;
 
-import java.util.List;
-
-public class UserResponseModel {
+public class UserRegistrationModel_Response {
 
     private String userId;
     private String firstName;
     private String lastName;
     private String email;
-    private List<ProfilePicturesResponseModel> profilePictures;
 
     public String getUserId() {
         return userId;
@@ -42,13 +38,5 @@ public class UserResponseModel {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public List<ProfilePicturesResponseModel> getProfilePictures() {
-        return profilePictures;
-    }
-
-    public void setProfilePictures(List<ProfilePicturesResponseModel> profilePictures) {
-        this.profilePictures = profilePictures;
     }
 }

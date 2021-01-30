@@ -1,10 +1,10 @@
-package com.enterpriseapp.users_service_api.presentationLayer;
+package com.enterpriseapp.users_service_api.controllerLayer.endpointModels.userLogin;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-public class UsersLoginModel {
+public class UserLoginModel_Request {
     @NotNull(message = "Email field is Empty \n Please enter your email name")
     @Email(message = "invalid email input")
     private String email;

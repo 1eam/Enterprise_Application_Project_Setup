@@ -1,5 +1,8 @@
-package com.enterpriseapp.users_service_api.presentationLayer;
+package com.enterpriseapp.users_service_api.controllerLayer;
 
+import com.enterpriseapp.users_service_api.controllerLayer.endpointModels.userRegistration.UserRegistrationModel_Response;
+import com.enterpriseapp.users_service_api.controllerLayer.endpointModels.userRegistration.UsersRegistrationModel_Request;
+import com.enterpriseapp.users_service_api.controllerLayer.endpointModels.userData.UserModel_Response;
 import com.enterpriseapp.users_service_api.serviceLayer.UsersDto;
 import com.enterpriseapp.users_service_api.serviceLayer.UsersService;
 import org.modelmapper.ModelMapper;
@@ -28,7 +31,7 @@ public class UsersController {
 
     @PostMapping(value = "/register", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
                                       produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
-    public ResponseEntity<UserRegistrationResponseModel> createUser(@Valid @RequestBody UsersRegistrationModel userInput){
+    public ResponseEntity<UserRegistrationModel_Response> createUser(@Valid @RequestBody UsersRegistrationModel_Request userInput){
         //Maps the request-model to UsersDto type -> for users service processing
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
@@ -39,15 +42,15 @@ public class UsersController {
 
         //returns a response-entity with http status & body
         //that contains the User-Registration-Response Model structure.
-        UserRegistrationResponseModel returnValue = modelMapper.map(usersDto, UserRegistrationResponseModel.class);
+        UserRegistrationModel_Response returnValue = modelMapper.map(usersDto, UserRegistrationModel_Response.class);
         return ResponseEntity.status(HttpStatus.CREATED).body(returnValue);
     }
 
     @GetMapping(value="/users/{userId}", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
-    public ResponseEntity<UserResponseModel> getUser(@PathVariable("userId") String userId) {
+    public ResponseEntity<UserModel_Response> getUser(@PathVariable("userId") String userId) {
 
         UsersDto usersDto = usersService.getUserByUserId(userId);
-        UserResponseModel returnValue = new ModelMapper().map(usersDto, UserResponseModel.class);
+        UserModel_Response returnValue = new ModelMapper().map(usersDto, UserModel_Response.class);
 
         return ResponseEntity.status(HttpStatus.OK).body(returnValue);
     }

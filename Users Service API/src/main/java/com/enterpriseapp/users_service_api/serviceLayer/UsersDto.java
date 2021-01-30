@@ -1,6 +1,6 @@
 package com.enterpriseapp.users_service_api.serviceLayer;
 
-import com.enterpriseapp.users_service_api.feignLayer.ProfilePicturesResponseModel;
+import com.enterpriseapp.users_service_api.service2serviceCommunicationLayer.ProfilePicturesResponseModel;
 
 import java.io.Serializable;
 import java.util.List;

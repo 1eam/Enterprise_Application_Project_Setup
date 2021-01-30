@@ -1,4 +1,4 @@
-package com.enterpriseapp.users_service_api.dataLayer;
+package com.enterpriseapp.users_service_api.databaseLayer;
 
 import org.springframework.data.repository.CrudRepository;
 

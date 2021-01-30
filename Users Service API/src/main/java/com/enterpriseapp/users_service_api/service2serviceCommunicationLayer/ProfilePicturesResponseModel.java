@@ -1,4 +1,4 @@
-package com.enterpriseapp.users_service_api.feignLayer;
+package com.enterpriseapp.users_service_api.service2serviceCommunicationLayer;
 
 public class ProfilePicturesResponseModel {
     private String photoId;

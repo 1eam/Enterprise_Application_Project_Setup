@@ -1,9 +1,9 @@
 package com.enterpriseapp.users_service_api.serviceLayer;
 
-import com.enterpriseapp.users_service_api.dataLayer.UserEntity;
-import com.enterpriseapp.users_service_api.dataLayer.UsersRepository;
-import com.enterpriseapp.users_service_api.feignLayer.ProfilePicturesResponseModel;
-import com.enterpriseapp.users_service_api.feignLayer.ProfilePicturesClient;
+import com.enterpriseapp.users_service_api.databaseLayer.UserEntity;
+import com.enterpriseapp.users_service_api.databaseLayer.UsersRepository;
+import com.enterpriseapp.users_service_api.service2serviceCommunicationLayer.ProfilePicturesResponseModel;
+import com.enterpriseapp.users_service_api.service2serviceCommunicationLayer.ProfilePicturesClient;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;

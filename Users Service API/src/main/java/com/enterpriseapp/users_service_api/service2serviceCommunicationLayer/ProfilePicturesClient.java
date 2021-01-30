@@ -1,4 +1,4 @@
-package com.enterpriseapp.users_service_api.feignLayer;
+package com.enterpriseapp.users_service_api.service2serviceCommunicationLayer;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;

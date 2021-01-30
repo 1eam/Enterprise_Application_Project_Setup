@@ -1,5 +1,5 @@
 //This class will be used to store data to the database
-package com.enterpriseapp.users_service_api.dataLayer;
+package com.enterpriseapp.users_service_api.databaseLayer;
 
 import javax.persistence.*;
 import java.io.Serializable;
