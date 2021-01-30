@@ -9,7 +9,7 @@ import java.util.List;
 @FeignClient(name = "profile-pictures-service")
 public interface ProfilePicturesClient {
     @GetMapping("/users/{id}/profile-pictures")
-    public List<ProfilePicturesResponseModel> getProfilePictures(@PathVariable String id);
+    public List<ProfilePicturesModel_Response> getProfilePictures(@PathVariable String id);
 }
 
 //The Feign framework implements this Interface

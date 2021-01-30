@@ -1,6 +1,6 @@
 package com.enterpriseapp.users_service_api.service2serviceCommunicationLayer;
 
-public class ProfilePicturesResponseModel {
+public class ProfilePicturesModel_Response {
     private String photoId;
     private String userId;
     private String name;

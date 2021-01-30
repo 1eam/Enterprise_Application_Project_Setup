@@ -1,6 +1,6 @@
 package com.enterpriseapp.users_service_api.serviceLayer;
 
-import com.enterpriseapp.users_service_api.service2serviceCommunicationLayer.ProfilePicturesResponseModel;
+import com.enterpriseapp.users_service_api.service2serviceCommunicationLayer.ProfilePicturesModel_Response;
 
 import java.io.Serializable;
 import java.util.List;
@@ -14,7 +14,7 @@ public class UsersDto implements Serializable {
     private String email;
     private String password;
     private String encryptedPassword;
-    private List<ProfilePicturesResponseModel> profilePictures;
+    private List<ProfilePicturesModel_Response> profilePictures;
 
     public String getUserId() {
         return userId;
@@ -64,11 +64,11 @@ public class UsersDto implements Serializable {
         this.encryptedPassword = encryptedPassword;
     }
 
-    public List<ProfilePicturesResponseModel> getProfilePictures() {
+    public List<ProfilePicturesModel_Response> getProfilePictures() {
         return profilePictures;
     }
 
-    public void setProfilePictures(List<ProfilePicturesResponseModel> profilePictures) {
+    public void setProfilePictures(List<ProfilePicturesModel_Response> profilePictures) {
         this.profilePictures = profilePictures;
     }
 }

@@ -2,7 +2,7 @@ package com.enterpriseapp.users_service_api.serviceLayer;
 
 import com.enterpriseapp.users_service_api.databaseLayer.UserEntity;
 import com.enterpriseapp.users_service_api.databaseLayer.UsersRepository;
-import com.enterpriseapp.users_service_api.service2serviceCommunicationLayer.ProfilePicturesResponseModel;
+import com.enterpriseapp.users_service_api.service2serviceCommunicationLayer.ProfilePicturesModel_Response;
 import com.enterpriseapp.users_service_api.service2serviceCommunicationLayer.ProfilePicturesClient;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
@@ -79,7 +79,7 @@ public class UsersServiceImpl implements UsersService {
 
         UsersDto usersDto = new ModelMapper().map(userEntity, UsersDto.class);
 
-        List<ProfilePicturesResponseModel> profilePicturesList = profilePicturesClient.getProfilePictures(userId);
+        List<ProfilePicturesModel_Response> profilePicturesList = profilePicturesClient.getProfilePictures(userId);
 
         usersDto.setProfilePictures(profilePicturesList);
 

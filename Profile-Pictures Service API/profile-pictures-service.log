@@ -55,3 +55,19 @@
 2021-01-30 16:13:00.911  INFO 27680 --- [http-nio-auto-1-exec-1] c.a.p.a.a.i.c.ProfilePicturesController  : Returning 2 profile pictures
 2021-01-30 16:13:07.796  INFO 27680 --- [http-nio-auto-1-exec-2] c.a.p.a.a.i.c.ProfilePicturesController  : Returning 2 profile pictures
 2021-01-30 16:13:24.930  INFO 27680 --- [http-nio-auto-1-exec-4] c.a.p.a.a.i.c.ProfilePicturesController  : Returning 2 profile pictures
+2021-01-30 16:15:50.705  INFO 27680 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2021-01-30 16:20:50.717  INFO 27680 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2021-01-30 16:25:50.730  INFO 27680 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2021-01-30 16:30:50.733  INFO 27680 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2021-01-30 16:35:50.750  INFO 27680 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2021-01-30 16:40:50.754  INFO 27680 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2021-01-30 16:45:50.757  INFO 27680 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2021-01-30 16:50:50.759  INFO 27680 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2021-01-30 16:55:50.774  INFO 27680 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2021-01-30 17:00:50.780  INFO 27680 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2021-01-30 17:05:50.790  INFO 27680 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2021-01-30 17:10:50.791  INFO 27680 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2021-01-30 17:15:50.807  INFO 27680 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2021-01-30 17:20:50.817  INFO 27680 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2021-01-30 17:25:50.820  INFO 27680 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2021-01-30 17:30:50.835  INFO 27680 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
