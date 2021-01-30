@@ -4,8 +4,11 @@ import com.enterpriseapp.users_service_api.databaseLayer.UserEntity;
 import com.enterpriseapp.users_service_api.databaseLayer.UsersRepository;
 import com.enterpriseapp.users_service_api.service2serviceCommunicationLayer.ProfilePicturesModel_Response;
 import com.enterpriseapp.users_service_api.service2serviceCommunicationLayer.ProfilePicturesClient;
+import feign.FeignException;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,6 +25,7 @@ public class UsersServiceImpl implements UsersService {
     private final UsersRepository usersRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private final ProfilePicturesClient profilePicturesClient;
+    Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     public UsersServiceImpl(UsersRepository usersRepository, BCryptPasswordEncoder bCryptPasswordEncoder, ProfilePicturesClient profilePicturesClient) {
@@ -79,7 +83,12 @@ public class UsersServiceImpl implements UsersService {
 
         UsersDto usersDto = new ModelMapper().map(userEntity, UsersDto.class);
 
-        List<ProfilePicturesModel_Response> profilePicturesList = profilePicturesClient.getProfilePictures(userId);
+        List<ProfilePicturesModel_Response> profilePicturesList = null;
+        try {
+            profilePicturesList = profilePicturesClient.getProfilePictures(userId);
+        } catch (FeignException e) {
+            logger.error(e.getLocalizedMessage());
+        }
 
         usersDto.setProfilePictures(profilePicturesList);
 
