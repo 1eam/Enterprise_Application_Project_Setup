@@ -1,5 +1,6 @@
 package com.enterpriseapp.users_service_api;
 
+import com.enterpriseapp.users_service_api.service2serviceCommunicationLayer.FeignExceptionsCenter;
 import feign.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -25,5 +26,10 @@ public class UsersServiceApiApplication {
     @Bean
     Logger.Level feignLoggerLevel(){
         return Logger.Level.FULL;
+    }
+
+    @Bean
+    public FeignExceptionsCenter getFeignExceptionsCenter(){
+        return new FeignExceptionsCenter();
     }
 }

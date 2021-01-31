@@ -83,12 +83,7 @@ public class UsersServiceImpl implements UsersService {
 
         UsersDto usersDto = new ModelMapper().map(userEntity, UsersDto.class);
 
-        List<ProfilePicturesModel_Response> profilePicturesList = null;
-        try {
-            profilePicturesList = profilePicturesClient.getProfilePictures(userId);
-        } catch (FeignException e) {
-            logger.error(e.getLocalizedMessage());
-        }
+        List<ProfilePicturesModel_Response> profilePicturesList = profilePicturesClient.getProfilePictures(userId);
 
         usersDto.setProfilePictures(profilePicturesList);
 
