@@ -17,14 +17,13 @@ public class FeignExceptionsCenter implements ErrorDecoder {
 //                return new BadRequestException();
                 break;
             case 404:{
-                if (methodKey.contains("getAlbums")) {
+                if (methodKey.contains("getProfilePictures")) {
                     return new ResponseStatusException(HttpStatus.valueOf(response.status()),"User profile picture(s) not found");
                 }
                 break;
-                }
-
+            }
             default:
-                throw new IllegalStateException("Unexpected value: " + response.status());
+        return new Exception(response.reason());
         }
         return null;
     }

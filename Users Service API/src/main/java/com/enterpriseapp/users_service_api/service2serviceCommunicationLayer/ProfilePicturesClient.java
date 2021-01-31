@@ -9,7 +9,7 @@ import java.util.List;
 @FeignClient(name = "profile-pictures-service")
 public interface ProfilePicturesClient {
 
-    @GetMapping("/users/{id}/profile-pictures")
+    @GetMapping("/users/{id}/profile-picturess")
     public List<ProfilePicturesModel_Response> getProfilePictures(@PathVariable String id);
 }
 
