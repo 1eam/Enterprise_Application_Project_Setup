@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
-@FeignClient(name = "profile-pictures-service")
+@FeignClient(name = "profile-pictures-service", fallback = ProfilePicturesRequestFallback.class)
 public interface ProfilePicturesClient {
 
     @GetMapping("/users/{id}/profile-pictures")
     public List<ProfilePicturesModel_Response> getProfilePictures(@PathVariable String id);
 }
 
-//The Feign framework implements this Interface
+//The Feign framework implements this Interface\
