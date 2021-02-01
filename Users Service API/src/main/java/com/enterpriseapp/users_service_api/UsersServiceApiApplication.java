@@ -27,9 +27,4 @@ public class UsersServiceApiApplication {
     Logger.Level feignLoggerLevel(){
         return Logger.Level.FULL;
     }
-
-    @Bean
-    public FeignExceptionsCenter getFeignExceptionsCenter(){
-        return new FeignExceptionsCenter();
-    }
 }
