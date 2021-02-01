@@ -1,5 +1,6 @@
 package com.enterpriseapp.users_service_api.service2serviceCommunicationLayer;
 
+import com.enterpriseapp.users_service_api.service2serviceCommunicationLayer.fallback_methods.ProfilePicturesRequestFallback;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,4 +14,4 @@ public interface ProfilePicturesClient {
     public List<ProfilePicturesModel_Response> getProfilePictures(@PathVariable String id);
 }
 
-//The Feign framework implements this Interface\
+//The Feign framework implements this Interface
