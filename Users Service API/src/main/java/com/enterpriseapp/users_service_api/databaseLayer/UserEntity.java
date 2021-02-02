@@ -1,20 +1,39 @@
-package com.enterpriseapp.users_service_api.serviceLayer;
+//This class will be used to store data to the database
+package com.enterpriseapp.users_service_api.databaseLayer;
 
-import com.enterpriseapp.users_service_api.service2serviceCommunicationLayer.ProfilePicturesModel_Response;
-
+import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
-public class UsersDto implements Serializable {
-    private static final long serialVersionUID = 3765243991479728485L;
+@Entity
+@Table(name = "users")
+public class UserEntity implements Serializable {
+    private static final long serialVersionUID = 344821740507061940L;
 
+    @Id @GeneratedValue
+    private long dbId;
+
+    @Column(nullable = false, unique = true)
     private String userId;
+
+    @Column(nullable = false, length = 32)
     private String firstName;
+
+    @Column(nullable = false, length = 100)
     private String lastName;
+
+    @Column(nullable = false, length = 100, unique = true)
     private String email;
-    private String password;
+
+    @Column(nullable = false)
     private String encryptedPassword;
-    private List<ProfilePicturesModel_Response> profilePictures;
+
+    public long getDbId() {
+        return dbId;
+    }
+
+    public void setDbId(long dbId) {
+        this.dbId = dbId;
+    }
 
     public String getUserId() {
         return userId;
@@ -48,27 +67,11 @@ public class UsersDto implements Serializable {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getEncryptedPassword() {
         return encryptedPassword;
     }
 
     public void setEncryptedPassword(String encryptedPassword) {
         this.encryptedPassword = encryptedPassword;
-    }
-
-    public List<ProfilePicturesModel_Response> getProfilePictures() {
-        return profilePictures;
-    }
-
-    public void setProfilePictures(List<ProfilePicturesModel_Response> profilePictures) {
-        this.profilePictures = profilePictures;
     }
 }

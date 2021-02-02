@@ -1,5 +1,0 @@
-#To set Eureka's defaultZone this .yml file is used instead of .properties file, where it doesnt work
-    eureka:
-      client:
-        serviceUrl:
-          defaultZone: ${EUREKA_URI:http://localhost:8010/eureka}

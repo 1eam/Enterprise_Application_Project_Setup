@@ -1,6 +1,6 @@
 package com.enterpriseapp.users_service_api.security;
 
-import com.enterpriseapp.users_service_api.presentationLayer.UsersLoginModel;
+import com.enterpriseapp.users_service_api.controllerLayer.endpointModels.userLogin.UserLoginModel_Request;
 import com.enterpriseapp.users_service_api.serviceLayer.UsersDto;
 import com.enterpriseapp.users_service_api.serviceLayer.UsersService;
 import java.io.IOException;
@@ -42,8 +42,8 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
                                                 HttpServletResponse res) throws AuthenticationException {
         try {
 
-            UsersLoginModel credentials = new ObjectMapper()
-                    .readValue(req.getInputStream(), UsersLoginModel.class);
+            UserLoginModel_Request credentials = new ObjectMapper()
+                    .readValue(req.getInputStream(), UserLoginModel_Request.class);
 
             return getAuthenticationManager().authenticate(
                     new UsernamePasswordAuthenticationToken(
