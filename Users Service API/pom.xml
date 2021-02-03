@@ -125,7 +125,13 @@
             <version>2.2.6.RELEASE</version>
         </dependency>
 
-<!--        Testing-->
+<!--         Sleuth + Zipkin Distribution Tracing-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-sleuth-zipkin</artifactId>
+        </dependency>
+
+        <!--        Testing-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
