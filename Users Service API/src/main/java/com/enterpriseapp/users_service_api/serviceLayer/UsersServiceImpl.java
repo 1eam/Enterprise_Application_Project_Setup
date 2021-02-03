@@ -83,7 +83,9 @@ public class UsersServiceImpl implements UsersService {
 
         UsersDto usersDto = new ModelMapper().map(userEntity, UsersDto.class);
 
+        logger.info("before calling Profile-Pictures microservice");
         List<ProfilePicturesModel_Response> profilePicturesList = profilePicturesClient.getProfilePictures(userId);
+        logger.info("after calling Profile-Pictures microservice");
 
         usersDto.setProfilePictures(profilePicturesList);
 
