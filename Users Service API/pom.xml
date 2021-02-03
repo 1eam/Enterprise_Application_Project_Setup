@@ -16,7 +16,7 @@
 
     <properties>
         <java.version>11</java.version>
-        <spring-cloud.version>2020.0.0</spring-cloud.version>
+        <release.train.version>2020.0.0</release.train.version>
         <rest-assured.version>4.3.0</rest-assured.version>
         <groovy.version>3.0.2</groovy.version>
     </properties>
@@ -125,6 +125,16 @@
             <version>2.2.6.RELEASE</version>
         </dependency>
 
+<!--         Sleuth + Zipkin Distribution Tracing-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-sleuth-zipkin</artifactId>
+        </dependency>
+
 <!--        Testing-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -170,7 +180,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud.version}</version>
+                <version>${release.train.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
