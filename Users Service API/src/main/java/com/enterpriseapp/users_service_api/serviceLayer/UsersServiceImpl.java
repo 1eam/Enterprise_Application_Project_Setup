@@ -2,9 +2,8 @@ package com.enterpriseapp.users_service_api.serviceLayer;
 
 import com.enterpriseapp.users_service_api.databaseLayer.UserEntity;
 import com.enterpriseapp.users_service_api.databaseLayer.UsersRepository;
-import com.enterpriseapp.users_service_api.service2serviceCommunicationLayer.ProfilePicturesModel_Response;
 import com.enterpriseapp.users_service_api.service2serviceCommunicationLayer.ProfilePicturesClient;
-import feign.FeignException;
+import com.enterpriseapp.users_service_api.service2serviceCommunicationLayer.ProfilePicturesModel_Response;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.slf4j.Logger;
@@ -25,7 +24,7 @@ public class UsersServiceImpl implements UsersService {
     private final UsersRepository usersRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private final ProfilePicturesClient profilePicturesClient;
-    Logger logger = LoggerFactory.getLogger(this.getClass());
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     public UsersServiceImpl(UsersRepository usersRepository, BCryptPasswordEncoder bCryptPasswordEncoder, ProfilePicturesClient profilePicturesClient) {
