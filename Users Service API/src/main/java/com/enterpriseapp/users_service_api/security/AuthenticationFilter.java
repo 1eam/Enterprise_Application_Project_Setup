@@ -38,10 +38,9 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
 
     @Override
-    public Authentication attemptAuthentication(HttpServletRequest req,
-                                                HttpServletResponse res) throws AuthenticationException {
-        try {
+    public Authentication attemptAuthentication(HttpServletRequest req, HttpServletResponse res) throws AuthenticationException {
 
+        try {
             UserLoginModel_Request credentials = new ObjectMapper()
                     .readValue(req.getInputStream(), UserLoginModel_Request.class);
 
@@ -61,7 +60,9 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     protected void successfulAuthentication(HttpServletRequest req,
                                             HttpServletResponse res,
                                             FilterChain chain,
-                                            Authentication auth) throws IOException, ServletException {
+                                            Authentication auth)
+                                            throws IOException, ServletException {
+
         String userName = ((User) auth.getPrincipal()).getUsername();
         UsersDto userDetails = usersService.getUserDetailsByEmail(userName);
 
@@ -76,5 +77,4 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
         res.addHeader("token", token);
         res.addHeader("userId", userDetails.getUserId());
     }
-
 }
