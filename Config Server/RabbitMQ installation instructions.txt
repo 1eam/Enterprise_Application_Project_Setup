@@ -7,3 +7,7 @@ Installation instructions can be found here: (https://www.rabbitmq.com/install-w
 
 Allthough this 3 minute visual installation guide is much múch clearer
 Visual installation guide: https://youtu.be/V9DWKbalbWQ
+
+commads to start: rabbitmq-server start (-detached)
+
+more commands: https://www.rabbitmq.com/cli.html
