@@ -1,14 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.appsdeveloperblog.photoapp.api.albums.service;
 
 import com.appsdeveloperblog.photoapp.api.albums.data.ProfilePictureEntity;
+import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.stereotype.Service;
 
 @Service
 public class ProfilePicturesServiceImpl implements ProfilePicturesService {
@@ -32,7 +28,6 @@ public class ProfilePicturesServiceImpl implements ProfilePicturesService {
         profilePictureEntity2.setId(2L);
         profilePictureEntity2.setName("photo 2 name");
         profilePictureEntity.setLocation("https://www.askideas.com/media/50/Funny-Jim-Carrey-Caricature-Face-Picture.jpg");
-
 
         returnValue.add(profilePictureEntity);
         returnValue.add(profilePictureEntity2);
