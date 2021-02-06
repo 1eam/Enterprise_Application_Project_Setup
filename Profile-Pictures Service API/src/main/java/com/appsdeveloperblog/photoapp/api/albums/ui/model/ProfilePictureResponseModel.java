@@ -1,14 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.appsdeveloperblog.photoapp.api.albums.ui.model;
 
 /**
  *
  * @author skargopolov
  */
+
 public class ProfilePictureResponseModel {
     private String photoId;
     private String userId; 
