@@ -5,7 +5,6 @@ import com.enterpriseapp.users_service_api.service2serviceCommunicationLayer.Pro
 import java.util.List;
 
 public class UserModel_Response {
-
     private String userId;
     private String firstName;
     private String lastName;

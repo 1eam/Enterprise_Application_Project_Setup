@@ -1,4 +1,3 @@
-
 package com.enterpriseapp.users_service_api.controllerLayer.endpointModels.userRegistration;
 
 import javax.validation.constraints.Email;

@@ -1,8 +1,6 @@
 package com.enterpriseapp.users_service_api.controllerLayer.endpointModels.userRegistration;
 
-
 public class UserRegistrationModel_Response {
-
     private String userId;
     private String firstName;
     private String lastName;

@@ -24,10 +24,12 @@ public class UsersController {
     @Autowired
     UsersService usersService;
 
+
     @GetMapping("/status")
     public String checkStatus(){
         return "User Controller Working on port " + environment.getProperty("local.server.port") + ", with token: " + environment.getProperty("token.secret");
     }
+
 
     @PostMapping(value = "/register", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
                                       produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
@@ -46,6 +48,7 @@ public class UsersController {
         return ResponseEntity.status(HttpStatus.CREATED).body(returnValue);
     }
 
+
     @GetMapping(value="/users/{userId}", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<UserModel_Response> getUser(@PathVariable("userId") String userId) {
 
@@ -54,4 +57,5 @@ public class UsersController {
 
         return ResponseEntity.status(HttpStatus.OK).body(returnValue);
     }
+
 }

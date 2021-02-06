@@ -27,6 +27,7 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+<!--        Devtools-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
@@ -40,14 +41,7 @@
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
 
-<!--        OpenFeign-->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>
-
-
-        <!--        Security-->
+<!--        Security-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
@@ -71,6 +65,13 @@
             <scope>runtime</scope>
         </dependency>
 
+<!--        In-Java mapping (Data-transfer)-->
+        <dependency>
+            <groupId>org.modelmapper</groupId>
+            <artifactId>modelmapper</artifactId>
+            <version>2.3.9</version>
+        </dependency>
+
 <!--        Json webtoken-->
         <!--     *note specific version 2.9.8 doesnt throw "Application failed to start" issue. normal behaviour helps return xml value (Postman Accept header). try updating later-->
         <dependency>
@@ -85,14 +86,7 @@
             <version>2.9.8</version>
         </dependency>
 
-<!--        In-Java mapping-->
-        <dependency>
-            <groupId>org.modelmapper</groupId>
-            <artifactId>modelmapper</artifactId>
-            <version>2.3.9</version>
-        </dependency>
-
-<!--        Spring Cloud Config + Cloud Bus + Bootstrap-->
+<!--        Spring Cloud Config + Cloud-Bus-amqp + Bootstrap + Actuator-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
@@ -105,11 +99,15 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-bootstrap</artifactId>
         </dependency>
-
-<!--        Actuator-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+<!--        OpenFeign-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
 
 <!--        Circuit Breaker (Hystrix + Hystrix Dashboard)
@@ -172,7 +170,6 @@
             <version>6.8.1</version>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
 
     <dependencyManagement>
