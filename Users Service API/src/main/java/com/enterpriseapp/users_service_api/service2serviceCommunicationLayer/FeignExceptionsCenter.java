@@ -1,3 +1,7 @@
+/*     This is a central class for Feign communication errors,
+       we can analyze requests received by the other microsservice
+       and throw a custom exception. In addition we can also analyze the request sent */
+
 package com.enterpriseapp.users_service_api.service2serviceCommunicationLayer;
 
 import feign.Response;
@@ -10,9 +14,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 @Component
 public class FeignExceptionsCenter implements ErrorDecoder {
-//    This is a central class for Feign communication errors,
-//    we can analyze requests received by the other microsservice
-//    and throw a custom exception. In addition we can also analyze the request sent
+
 private Environment environment;
 
 @Autowired
@@ -24,7 +26,7 @@ private Environment environment;
     public Exception decode(String methodKey, Response response) {
         switch (response.status()) {
             case 400:
-//                return new BadRequestException();
+                //return new BadRequestException(); - todo: create class
                 break;
             case 404:{
                 if (methodKey.contains("getProfilePictures")) {
@@ -33,7 +35,7 @@ private Environment environment;
                 break;
             }
             default:
-        return new Exception(response.reason());
+                return new Exception(response.reason());
         }
         return null;
     }
