@@ -35,7 +35,7 @@ class ProfilePicturesClientFallback implements ProfilePicturesClient {
     @Override
     public List<ProfilePicturesModel_Response> getProfilePictures(String id) {
 
-//      logs details to console for developers to view
+        //  logs details to console for developers to view
 
         if (cause instanceof FeignException && ((FeignException) cause).status() == 404) {
             logger.error("404 error took place when getAlbums was called with userId: " + id + ". Error message: "
@@ -44,7 +44,7 @@ class ProfilePicturesClientFallback implements ProfilePicturesClient {
             logger.error("Other error took place: " + cause.getLocalizedMessage());
         }
 
-//      returns back fallback method to client: an empty array []
+        //  returns back fallback method to client: an empty array []
         return new ArrayList<>();
     }
 }
